@@ -1,6 +1,8 @@
 import React from 'react';
 import { IoCartOutline } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
+import Card from '../../../ui/Card';
+import { toast } from "react-toastify"; 
 
 const Cart = ({ productCart, setProductCart }) => {
     const handleRemoveFromCart = (productId) => {
@@ -8,11 +10,13 @@ const Cart = ({ productCart, setProductCart }) => {
         setProductCart(updatedCart);
         console.log("Removed:", productId);
         console.log("Updated cart:", updatedCart);
+         toast.success("Item removed from cart ");
     };
 
     const handleCheckout = () => {
         setProductCart([]);
         alert("Thank you for your purchase!");
+         toast.success("Order placed successfully ");
     }
 
     const totalPrice = productCart.reduce((total, product) => total + product.price, 0);

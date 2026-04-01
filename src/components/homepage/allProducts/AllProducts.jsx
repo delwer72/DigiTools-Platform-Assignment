@@ -30,7 +30,7 @@ const AllProducts = ({productCart, setProductCart}) => {
                     <button
                         type="button"
                         className={`btn ${selectedCategory === 'products' ? 'btn-primary' : 'btn-ghost'} rounded-full`}
-                        onClick={() => setSelectedCategory('products')}
+                        onClick={() => setSelectedCategory('products') }
                     >
                         Products
                     </button>
