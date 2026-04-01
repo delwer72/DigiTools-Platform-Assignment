@@ -87,20 +87,24 @@ const Navbar = ({ productCart }) => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li><a>Parent</a></li>
-                            <li><a>Item 3</a></li>
+                            <li><a>Products</a></li>
+                            <li><a>Features</a></li>
+                            <li><a>Pricing</a></li>
+                            <li><a>Testimonials</a></li>
+                            <li><a>FAQ</a></li>
                         </ul>
                     </div>
-                    <a className="gradient-text text-4xl font-extrabold">DigiTools</a>
+                   <h2 className=" text-primary text-4xl font-extrabold" >DigiTools</h2>
                 </div>
 
                 {/* Navbar center */}
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li><a>Parent</a></li>
-                        <li><a>Item 3</a></li>
+                        <li><a>Products</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Pricing</a></li>
+                        <li><a>Testimonials</a></li>
+                        <li><a>FAQ</a></li>
                     </ul>
                 </div>
 
@@ -118,7 +122,7 @@ const Navbar = ({ productCart }) => {
                     </div>
 
                     <a href="/login">Login</a>
-                    <a className="btn gradient-bg text-white rounded-full">Get started</a>
+                    <a className="btn btn-primary text-white rounded-full">Get started</a>
                 </div>
             </div>
         </div>
