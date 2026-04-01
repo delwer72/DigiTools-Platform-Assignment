@@ -9,7 +9,7 @@ const Banner = () => {
         <div className="flex justify-between items-center gap-10 py-20 px-4 max-w-7xl mx-auto">
             <div className="space-y-6 flex-1">
                 <span className="bg-[#E1E7FF] p-2 rounded-full inline-block">
-                    <span className="p-2 rounded-full gradient-text">
+                    <span className="p-2 rounded-full text-primary">
                         New: AI-Powered Tools Available
                     </span>
                 </span>
