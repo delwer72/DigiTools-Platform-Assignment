@@ -20,7 +20,7 @@ export function App() {
       <Banner />
       <StatsSection />
       <AllProducts productCart={productCart} setProductCart={setProductCart} />
-      {/* <StepsSection /> */}
+      <StepsSection />
       <PricingSection />
       <WorkflowSection/>
       <Footer/>
