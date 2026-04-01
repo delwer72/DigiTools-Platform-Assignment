@@ -1,150 +1,130 @@
-import React from 'react';
+import React from "react";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "$0",
+    desc: "Perfect for getting started",
+    features: [
+      "Access to 10 free tools",
+      "Basic templates",
+      "Community support",
+      "1 project per month",
+    ],
+    button: "Get Started Free",
+    highlight: false,
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    desc: "Best for professionals",
+    features: [
+      "Access to all premium tools",
+      "Unlimited templates",
+      "Priority support",
+      "Unlimited projects",
+      "Cloud sync",
+      "Advanced analytics",
+    ],
+    button: "Start Pro Trial",
+    highlight: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$99",
+    desc: "For teams and businesses",
+    features: [
+      "Everything in Pro",
+      "Team collaboration",
+      "Custom integrations",
+      "Dedicated support",
+      "SLA guarantee",
+      "Custom branding",
+    ],
+    button: "Contact Sales",
+    highlight: false,
+  },
+];
 
 const PricingSection = () => {
-    return (
-        <div className='max-w-7xl mx-auto my-25'>
-            <h1 className="text-4xl font-bold text-center">Simple, Transparent Pricing</h1>
-            <p className="text-gray-500 text-center mt-2">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+  return (
+    <div className="bg-[#f5f6f8] py-12 px-4">
+      <div className="max-w-7xl mx-auto text-center">
+        
+        {/* Header */}
+        <h1 className="text-4xl font-bold text-gray-900">
+          Simple, Transparent Pricing
+        </h1>
+        <p className="text-gray-500 mt-3">
+          Choose the plan that fits your needs. Upgrade or downgrade anytime.
+        </p>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-10'>
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mt-12">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`relative rounded-2xl p-8 border ${
+                plan.highlight
+                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg scale-105"
+                  : "bg-white border-gray-200"
+              }`}
+            >
+              {/* Badge */}
+              {plan.highlight && (
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-xs px-3 py-1 rounded-full font-semibold text-black">
+                  Most Popular
+                </span>
+              )}
 
-                {/* Card 1 */}
-                <div className="card bg-base-100 shadow-sm h-full">
-                    <div className="card-body flex flex-col h-full">
-                        <div>
-                            <h2 className="text-3xl font-bold">Premium</h2>
-                            <p>Perfect for getting started</p>
-                        </div>
+              {/* Title */}
+              <h3 className="text-xl font-bold">{plan.name}</h3>
+              <p
+                className={`text-sm mt-1 ${
+                  plan.highlight ? "text-purple-100" : "text-gray-500"
+                }`}
+              >
+                {plan.desc}
+              </p>
 
-                        <h3 className="text-3xl mt-4">
-                            $29/<span className="text-xl">Month</span>
-                        </h3>
+              {/* Price */}
+              <div className="mt-6">
+                <span className="text-4xl font-bold">{plan.price}</span>
+                <span
+                  className={`ml-1 ${
+                    plan.highlight ? "text-purple-100" : "text-gray-500"
+                  }`}
+                >
+                  /Month
+                </span>
+              </div>
 
-                        <ul className="mt-6 flex flex-col gap-2 text-xs">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>High-resolution image generation</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Customizable style templates</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Batch processing capabilities</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-                        </ul>
+              {/* Features */}
+              <ul className="mt-6 space-y-2 text-sm">
+                {plan.features.map((item, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <span className="text-green-500">✔</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-                        <div className="mt-auto pt-6">
-                            <button className="btn gradient-bg rounded-full w-full text-white">
-                                Get Started Free
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="relative card gradient-bg shadow-sm h-full">
-                    <div className="card-body text-white flex flex-col h-full">
-                        <span className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 badge badge-xs badge-warning text-amber-700 rounded-full p-4">Most Popular</span>
-                        <div className="">
-                            <h2 className="text-3xl font-bold">Premium</h2>
-                            <p>Perfect for getting started</p>
-                        </div>
-                        <h3 className="text-3xl">$29/<span className='text-xl'>Month</span></h3>
-                        <ul className="mt-6 flex flex-col gap-2 text-xs">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>High-resolution image generation</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>Customizable style templates</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>Batch processing capabilities</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-
-                        </ul>
-                        <div className="mt-6">
-                            <div className='btn w-full rounded-full'>
-                                <button className="btn border-none w-full gradient-text">Get Started Free</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="card bg-base-100 shadow-sm h-full">
-                    <div className="card-body flex flex-col h-full">
-                        <div className="">
-                            <h2 className="text-3xl font-bold">Premium</h2>
-                            <p>Perfect for getting started</p>
-                        </div>
-                        <h3 className="text-3xl">$29/<span className='text-xl'>Month</span></h3>
-                        <ul className="mt-6 flex flex-col gap-2 text-xs">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>High-resolution image generation</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>Customizable style templates</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>Batch processing capabilities</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI-driven image enhancements</span>
-                            </li>
-
-                        </ul>
-                        <div className="mt-6">
-                            <button className="btn gradient-bg rounded-full w-full text-white">Get Started Free</button>
-                        </div>
-                    </div>
-                </div>
-
+              {/* Button */}
+              <button
+                className={`mt-8 w-full py-3 rounded-full font-semibold ${
+                  plan.highlight
+                    ? "bg-white text-purple-600"
+                    : "bg-gradient-to-r from-purple-600 to-indigo-600 text-white"
+                }`}
+              >
+                {plan.button}
+              </button>
             </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default PricingSection;

@@ -4,7 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 
 const Navbar = ({ productCart }) => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='container'>
             <div className="navbar bg-base-100">
                 {/* Navbar start */}
                 <div className="navbar-start">

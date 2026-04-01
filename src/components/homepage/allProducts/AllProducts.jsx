@@ -19,7 +19,7 @@ const AllProducts = ({productCart, setProductCart}) => {
     }, []);
 
     return (
-        <div className='max-w-7xl mx-auto mb-10'>
+        <div className='max-w-7xl mx-auto mb-10 mt-10'>
             <div className="flex flex-col items-center text-center gap-4">
                 <h2 className='text-5xl font-semibold'>Premium Digital Tools</h2>
                 <p className='max-w-lg'>
